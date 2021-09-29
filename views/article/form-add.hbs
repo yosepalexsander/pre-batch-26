@@ -1,0 +1,22 @@
+{{> head}}
+{{> navbar}}
+
+<div class="container text center pt-5">
+  <form action="">
+    <div class="file-input-group text-start">
+      <input type="file" hidden id="file" aria-label="file upload">
+      <label for="file">Attach Thumbnail <img src="/static/icons/attach.svg" alt=""></label>
+    </div>
+    <div>
+      <input type="text" placeholder="title">
+    </div>
+    <div>
+      <textarea placeholder="your content goes here..." rows="8"></textarea>
+    </div>
+    <div class="text-end">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+{{>footer}}

@@ -1,0 +1,20 @@
+{{>head}}
+{{>navbar}}
+
+<div class="container article">
+  <div class="px-5">
+    {{#if isLogin}}
+      <div class="text-end mb-2">
+        <a href="/#" class="btn-edit"><img src="/static/icons/edit.svg" alt="edit"></a>
+        <a href="/#" class="btn-edit"><img src="/static/icons/delete.svg" alt="delete"></a>
+      </div>
+    {{/if}}
+
+    <img src="#" alt="article image" class="img-main">
+
+    <h4 class="mt-4">Wisata Vaksin Sambil Lihat Air Terjun</h4>
+    <p>Nulla non facilisis eros. Nullam sagittis risus sit amet ex lacinia, ut efficitur nulla molestie.</p>
+  </div>
+</div>
+
+{{>footer}}
