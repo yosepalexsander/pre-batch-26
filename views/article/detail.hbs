@@ -1,19 +1,25 @@
 {{>head}}
+
 {{>navbar}}
+{{#if message}}
+  <div class="alert alert-{{message.type}}" role="alert">
+    {{message.message}}
+  </div>
+{{/if}}
 
 <div class="container article">
   <div class="px-5">
-    {{#if isLogin}}
+    {{#if isContentOwner}}
       <div class="text-end mb-2">
-        <a href="/#" class="btn-edit"><img src="/static/icons/edit.svg" alt="edit"></a>
-        <a href="/#" class="btn-edit"><img src="/static/icons/delete.svg" alt="delete"></a>
+        <a href="/article/edit/{{article.id}}" class="btn-edit"><img src="/static/icons/edit.svg" alt="edit"></a>
+        <a href="/article/delete/{{article.id}}" class="btn-edit"><img src="/static/icons/delete.svg" alt="delete"></a>
       </div>
     {{/if}}
 
-    <img src="#" alt="article image" class="img-main">
+    <img src="{{article.image}}" alt="article image" class="img-main img-fluid">
 
-    <h4 class="mt-4">Wisata Vaksin Sambil Lihat Air Terjun</h4>
-    <p>Nulla non facilisis eros. Nullam sagittis risus sit amet ex lacinia, ut efficitur nulla molestie.</p>
+    <h4 class="mt-4">{{article.title}}</h4>
+    <p>{{{article.content}}}</p>
   </div>
 </div>
 

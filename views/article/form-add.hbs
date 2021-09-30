@@ -2,16 +2,17 @@
 {{> navbar}}
 
 <div class="container text center pt-5">
-  <form action="">
+  <form action="/article" method="POST" enctype="multipart/form-data">
     <div class="file-input-group text-start">
-      <input type="file" hidden id="file" aria-label="file upload">
+      <input type="file" hidden id="file" aria-label="file upload" name="image" onchange="handleChange()">
       <label for="file">Attach Thumbnail <img src="/static/icons/attach.svg" alt=""></label>
     </div>
+    <div id="preview-thumbnail" class="text-start"></div>
     <div>
-      <input type="text" placeholder="title">
+      <input type="text" placeholder="title" name="title">
     </div>
     <div>
-      <textarea placeholder="your content goes here..." rows="8"></textarea>
+      <textarea placeholder="your content goes here..." rows="8" name="content"></textarea>
     </div>
     <div class="text-end">
       <button type="submit">Submit</button>
@@ -19,4 +20,11 @@
   </form>
 </div>
 
+<script>
+  function handleChange() {
+    const previewElement = document.getElementById("preview-thumbnail")
+    const value = URL.createObjectURL(event.target.files[0])
+    previewElement.innerHTML = `<img src=${value} style="width: 250px;" class="mb-3">`
+  }
+</script>
 {{>footer}}
