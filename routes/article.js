@@ -62,6 +62,7 @@ router.get("/edit/:id", function (req, res) {
     conn.release();
   });
 });
+
 router.post("/", uploadFile("image"), function (req, res) {
   let { title, content } = req.body;
   let image = req.file.filename;
@@ -75,6 +76,7 @@ router.post("/", uploadFile("image"), function (req, res) {
     if (err) throw err;
 
     conn.query(query, [title, content, image, userId], (err, result) => {
+      console.log(result);
       if (err) {
         req.session.message = {
           type: "danger",
